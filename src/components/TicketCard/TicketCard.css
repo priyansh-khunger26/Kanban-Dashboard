@@ -1,0 +1,209 @@
+/* src/components/TicketCard/TicketCard.css */
+
+.ticket-card {
+    background-color: var(--card-bg-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-light);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
+}
+
+.dark-theme .ticket-card {
+    background-color: var(--card-bg-dark);
+}
+
+/* Ticket ID */
+.ticket-id {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Title */
+.ticket-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+.dark-theme .ticket-title {
+    color: var(--text-color-dark);
+}
+
+/* Description */
+.ticket-description {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+/* Progress Container */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+/* Progress Text */
+.progress-text {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+.dark-theme .progress-text {
+    color: #cbd5e0;
+}
+
+
+
+/* src/components/TicketCard/TicketCard.css */
+
+/* Base styling for ticket card */
+.ticket-card {
+    background-color: var(--card-bg-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.dark-theme .ticket-card {
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+}
+
+/* Edit Button Styling */
+.ticket-edit-button {
+    background-color: #4a90e2;
+    color: #ffffff;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ticket-edit-button:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.dark-theme .ticket-edit-button {
+    background-color: #6b47dc;
+}
+
+.dark-theme .ticket-edit-button:hover {
+    background-color: #5432b8;
+}
+
+/* Edit Form Container */
+.ticket-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: var(--card-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .ticket-edit-form {
+    background-color: var(--card-bg-dark);
+}
+
+/* Input Fields Styling */
+.ticket-edit-title,
+.ticket-edit-description {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.ticket-edit-title:focus,
+.ticket-edit-description:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+.dark-theme .ticket-edit-title,
+.dark-theme .ticket-edit-description {
+    background-color: #3a3b3c;
+    color: #e0e0e0;
+    border-color: #5e5e5e;
+}
+
+.dark-theme .ticket-edit-title:focus,
+.dark-theme .ticket-edit-description:focus {
+    border-color: #6b47dc;
+}
+
+/* Save and Cancel Buttons */
+.ticket-save-button,
+.ticket-cancel-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.ticket-save-button {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.ticket-save-button:hover {
+    background-color: #43a047;
+    transform: translateY(-2px);
+}
+
+.ticket-cancel-button {
+    background-color: #f44336;
+    color: #ffffff;
+}
+
+.ticket-cancel-button:hover {
+    background-color: #e53935;
+    transform: translateY(-2px);
+}
+
+.dark-theme .ticket-save-button {
+    background-color: #34a853;
+}
+
+.dark-theme .ticket-cancel-button {
+    background-color: #ea4335;
+}
+

@@ -1,70 +1,106 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Kanban Dashboard Assignment
 
-## Available Scripts
+This project is a **Kanban Dashboard** application built with React, designed to manage tasks across multiple status columns: **To Do**, **In Progress**, **Blocked**, and **Done**. The application provides intuitive task management features, including task creation, status transitions, inline editing, live mode, dark/light theme switching, and advanced filtering and sorting.
 
-In the project directory, you can run:
+## Features Implemented
 
-### `npm start`
+### Core Functionalities
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Task Management Across Columns**:
+   - Users can move tasks between columns using transition buttons that enforce valid status transitions according to defined rules.
+   
+2. **Dynamic Task Count by Status**:
+   - Each column header displays the number of tasks within that status, updating in real-time as tasks are moved.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Header and Theme Toggle**:
+   - Main header displays the title "Kanban Dashboard" along with live mode and theme toggles.
+   - Users can switch between light and dark themes.
+   
+4. **Live Mode**:
+   - In live mode, tasks transition automatically based on pre-set rules to simulate real-time task movement.
 
-### `npm test`
+5. **Inline Editing of Tasks**:
+   - Tasks can be edited inline for quick updates to title and description without leaving the board interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. **Task Details Modal**:
+   - A modal opens when a task is clicked (outside of the edit button), displaying full details for better visibility.
 
-### `npm run build`
+7. **Lazy Loading with Vertical Scrolling**:
+   - Tasks load incrementally within each column for performance optimization, especially useful when there are many tasks.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Additional Functionalities
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Filtering and Sorting Options**:
+   - Users can filter tasks by priority (High, Medium, Low) and sort by title, due date, or priority within each column, making it easier to manage tasks.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Customizable Task Deletion in the Done Column**:
+   - Tasks in the **Done** column include a delete button, allowing users to remove completed tasks from the board, which helps in keeping the board uncluttered.
 
-### `npm run eject`
+3. **Enhanced UI and UX Styling**:
+   - Styled scrollbars, animated buttons, and theme-specific color adjustments enhance user experience and make the application visually appealing.
+   
+## Extra Functionalities Beyond the Problem Statement
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Filtering by Priority and Sorting**:
+   - Allows users to filter tasks within each column by priority and sort them by title, due date, or priority. This was not part of the original requirements but improves task management significantly.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Dynamic Theme Customization**:
+   - The application supports a dark/light theme toggle with enhanced styling for each mode, including color adjustments and smooth transitions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Advanced Task Deletion**:
+   - Task deletion is limited to the **Done** column, helping to keep only completed tasks under control and preserving tasks still in progress.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Additional Styling for Enhanced User Experience**:
+   - Custom styles for vertical scrolling bars, button animations, and hover effects make the application more interactive and pleasing to use.
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+src/
+├── components/
+│   ├── Header/              # Header with live mode and theme toggles
+│   ├── KanbanColumn/        # Column component for each task status
+│   ├── TicketCard/          # Individual task card with inline editing
+│   └── TicketDetailsModal/  # Modal for detailed task view
+│
+├── data/
+│   └── tickets.json         # JSON data file containing task information
+│
+├── hooks/
+│   └── useFakeTicketTransition.js # Hook for automatic task transitions in live mode
+│
+├── utils/
+│   └── transitions.js       # Transition rules and validations for task status
+│
+├── App.js                   # Main app component orchestrating the board
+├── App.css                  # Global styling for app layout and theming
+└── index.js                 # Entry point of the application
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/kanban-dashboard.git
+   cd kanban-dashboard
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+3. **Run the Application**:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **View the App**:
+   Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-### Making a Progressive Web App
+## Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Drag-and-Drop Functionality**: Integrate a drag-and-drop library to allow easier task movement between columns.
+2. **Multi-User Support and Real-Time Collaboration**: Implement WebSocket or Firebase for real-time updates across multiple users.
+3. **Analytics Dashboard**: Provide task completion rates, overdue task tracking, and other productivity metrics.

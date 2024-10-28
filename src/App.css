@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+:root {
+  /* Colors and Shadows */
+  --bg-color-light: #f3f4f6;
+  --text-color-light: #333333;
+  --text-color-dark: #ffffff;
+  --column-bg-light: #ffffff;
+  --column-bg-dark: #242424;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #2e2e38;
+  --button-bg-light: #4a90e2;
+  --button-bg-dark: #6b47dc;
+  --accent-color: #9a6df0;
+  --header-bg-dark: #6b47dc; /* Dark theme header background */
+  --header-bg-light: #d1e7ff; /* Light blue for light theme column headers */
+  --main-header-dark: #9a6df0; /* Purple for main header in dark mode */
+  --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+  --shadow-dark: rgba(0, 0, 0, 0.5) 0px 4px 6px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Light Theme */
+.light-theme {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  color: var(--text-color-light);
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.light-theme .main-header {
+  color: var(--text-color-light);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Dark Theme */
+.dark-theme {
+  background: linear-gradient(135deg, #181818, #2e2e38);
+  color: var(--text-color-dark);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.dark-theme .main-header {
+  color: var(--main-header-dark); /* Purple color for main header in dark mode */
+}
+
+/* Kanban Columns */
+.kanban-columns {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Column Styling with Vertical Scrolling */
+.kanban-column {
+  background-color: var(--column-bg-light);
+  border-radius: 0.75rem;
+  max-width: 280px;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: var(--shadow-light);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.5rem;
+  max-height: 500px; /* Set max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-behavior: smooth;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-theme .kanban-column {
+  background-color: var(--column-bg-dark);
+  box-shadow: var(--shadow-dark);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Custom Scrollbar Styling for Vertical Scroll */
+.kanban-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kanban-column::-webkit-scrollbar-thumb {
+  background-color: #6b47dc;
+  border-radius: 4px;
+}
+
+.kanban-column::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Column Header Styling */
+.kanban-column-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color-light);
+  padding: 0.75rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: var(--header-bg-light); /* Light blue for light mode */
+  text-align: left;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+}
+
+.dark-theme .kanban-column-header {
+  color: #ffffff;
+  background-color: var(--header-bg-dark); /* Dark purple for dark mode */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Header Styling */
+.main-header {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Ticket Card Styling with Hover Effect */
+.ticket-card {
+  background-color: var(--card-bg-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-left: 4px solid #4a90e2;
+}
+
+.ticket-card:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 10px;
+  border-left-color: #6b47dc;
+}
+
+.dark-theme .ticket-card {
+  background-color: var(--card-bg-dark);
+  border-left: 4px solid #9a6df0;
+}
+
+.dark-theme .ticket-card:hover {
+  border-left-color: #d49af6;
+}
+
+/* Title and Description Styling in Ticket Card */
+.ticket-card .ticket-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color-light);
+}
+
+.dark-theme .ticket-card .ticket-title {
+  color: var(--text-color-dark);
+}
+
+.ticket-card .ticket-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.dark-theme .ticket-card .ticket-description {
+  color: #cbd5e0;
+}
+
+/* Progress Bar in Ticket Card */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.dark-theme .progress-bar {
+  background-color: #9a6df0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kanban-columns {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
   }
 }

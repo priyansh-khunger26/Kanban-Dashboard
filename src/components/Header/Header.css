@@ -1,0 +1,140 @@
+/* src/components/Header/Header.css */
+
+.kanban-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    box-shadow: var(--shadow-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-theme .kanban-header {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.header-title h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#007bff, #4a90e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Toggle Theme Button */
+.toggle-theme-button {
+    background-color: var(--button-bg-light);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.toggle-theme-button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.dark-theme .toggle-theme-button {
+    background-color: var(--button-bg-dark);
+}
+
+/* Live Mode Toggle Switch */
+.live-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* Ticket Counts Styling */
+.ticket-counts {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.dark-theme .ticket-counts {
+    color: #cbd5e0;
+}
+
+/* Individual Status Counts */
+.count {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+}
+
+.count.todo {
+    color: #ffbb33;
+}
+
+.count.in-progress {
+    color: #007bff;
+}
+
+.count.blocked {
+    color: #d32f2f;
+}
+
+.count.done {
+    color: #388e3c;
+}
