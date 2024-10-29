@@ -82,7 +82,7 @@ src/
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/kanban-dashboard.git
+   git clone https://github.com/priyansh-khunger26/kanban-dashboard.git
    cd kanban-dashboard
    ```
 
